@@ -1,3 +1,5 @@
+
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -18,22 +20,23 @@ var Enemy = function() {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     this.x = this.speed * dt + this.x;
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    //write a collision function
 }
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    x = Resources.get(this.sprite).height;
+
 }
 
 var Player = function(){
     this.sprite = 'images/char-boy.png';
-    this.y = 5*80 ;// The image/sprite for our enemies, this uses
+    this.y = 400 ;// The image/sprite for our enemies, this uses
     this.x = 202;
-    this.speed = 0;
 
 
 }
@@ -41,12 +44,16 @@ var Player = function(){
 
 
 Player.prototype.update = function() {
-    this.y = this.speed + this.y;
+    var x = this.x;
+    var y = this.y;
+
+
+}
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     //write a collision function
-}
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -55,7 +62,9 @@ Player.prototype.handleInput = function(key){
     switch(key){
         case 'left':
             if(this.x > 0){
-            this.x = this.x - 101 ;
+                this.x = this.x -101;
+
+
             }
 
             break;
@@ -67,7 +76,7 @@ Player.prototype.handleInput = function(key){
         case 'up':
             if(this.y > 40){
             this.y = this.y - 90;
-            console.log(this.y)
+
             }
 
 
@@ -80,12 +89,16 @@ Player.prototype.handleInput = function(key){
 
             break;
         default:
-            alert: ("Not one of  the allowed keys")
+            this.key = null;
+    }
     }
 
-}
+//Player.prototype.collision = function(){
+//    if(this.x)
+//}
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
 }
 
 
