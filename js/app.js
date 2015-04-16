@@ -1,8 +1,3 @@
-//make game over when  you hit the bug
-//need to see if they are on the same x coordinate and y coordinate
-//restart the game
-
-//Fråga om this.x och x  för enemies hur kan jag få access till den variabeln?
 
 // Enemies our player must avoid
 var Enemy = function() {
@@ -14,7 +9,7 @@ var Enemy = function() {
     //var height_stone = Resources.get(stone-block.png);
     this.y = 60 + 83 * random ;// The image/sprite for our enemies, this uses
     this.x = 0;
-    this.speed = 0;
+    this.speed = 20;
 //83 (1-3)
 //0
 
@@ -90,7 +85,7 @@ Player.prototype.handleInput = function(key){
     }
 
 Player.prototype.collision = function(){
-    if(this.x <= allEnemies[0].x){
+    if(this.x < allEnemies[0].x+50 && this.x+50 > allEnemies[0].x && this.y < allEnemies[0].y+30 && this.y+30 > allEnemies[0].y){
         console.log("fail");
     }
     console.log("success");
