@@ -80,7 +80,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        //checkCollisions(player);
     }
 
     /* This is called by the update function  and loops through all of the
@@ -97,6 +97,10 @@ var Engine = (function(global) {
         player.update();
     }
 
+    //function checkCollisions(player){
+    //    console.log(player.y);//check if a player is on the same x or y coordinate
+    //    console.log(player.x)
+    //}
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
      * game tick (or loop of the game engine) because that's how games work -
