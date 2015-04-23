@@ -19,6 +19,7 @@ var Engine = (function(global) {
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
      */
+    var score = 0;
     var doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
@@ -27,6 +28,8 @@ var Engine = (function(global) {
 
     canvas.width = 505;
     canvas.height = 606;
+    //ctx.font = "30pt Calibri";
+    //ctx.fillText("Score" + " " + score, 250,30);
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
