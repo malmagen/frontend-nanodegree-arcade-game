@@ -13,8 +13,7 @@ var Enemy = function() {
         this.speed = 50;
     }
 
-//83 (1-3)
-//0
+
 
 }
 
@@ -66,15 +65,20 @@ var Player = function(){
 
 Player.prototype.update = function() {
     ctx.font = "30pt Calibri";
+    ctx.fillStyle = "black";
+
     ctx.fillText("Score"+" "+ score , 200,30);
+
     player.collision();
     console.log(this.y);
-    if(this.y < 0){
+    if(this.y <= -20){
+
+        ctx.clearRect(300,0, 40,40);
         score++;
         player.restart();
 
     }
-    console.log("hej"+this.y);
+
 
 }
 
@@ -96,9 +100,13 @@ Player.prototype.handleInput = function(key){
             break;
         case 'up':
             if(this.y > 0){
+                if(this.y===40){
+                    this.y+=-60;
+                }
+                else{
                console.log(this.y);
                this.y +=- 90;
-
+               }
             }
 
             break;
@@ -116,7 +124,7 @@ Player.prototype.handleInput = function(key){
 
 Player.prototype.restart = function(){
 
-    this.y = 400;
+   this.y = 400;
     this.x = 202;
 }
 
