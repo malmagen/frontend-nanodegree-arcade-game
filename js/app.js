@@ -1,4 +1,4 @@
-
+//Sorry about first submit thought this version was already pushed to github
 //keeps the score when player reaches the water
 var score = 0;
 
@@ -16,7 +16,7 @@ var Enemy = function() {
 
 
 
-}
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -45,7 +45,7 @@ var Player = function(){
     this.x = 202;
 
 
-}
+};
 
 //draws the score and add points if player is able to reach the water.
 //Calls the collison function
