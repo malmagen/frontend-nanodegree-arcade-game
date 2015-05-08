@@ -1,5 +1,6 @@
 //Sorry about first submit thought this version was already pushed to github
 //keeps the score when player reaches the water
+"use strict";
 var score = 0;
 
 // Enemies our player must avoid
@@ -25,18 +26,18 @@ Enemy.prototype.update = function(dt) {
     this.x = this.speed * dt + this.x;
     if(this.x > 403){
         this.x = 0;
-        random_pos = Math.floor(Math.random() *3);
+        var random_pos = Math.floor(Math.random() *3);
         this.y = 60 + 83 * random_pos;
 
     }
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
 
-}
+};
 
 
 var Player = function(){
@@ -56,7 +57,7 @@ Player.prototype.update = function() {
     ctx.fillText('Score'+' '+ score , 200,30);
 
     player.collision();
-    console.log(this.y);
+
     if(this.y <= -20){
 
         ctx.clearRect(300,0, 40,40);
@@ -66,7 +67,7 @@ Player.prototype.update = function() {
     }
 
 
-}
+};
 
 //update players x and y coordinate depending on which
 //key was pressed
@@ -91,7 +92,7 @@ Player.prototype.handleInput = function(key){
                     this.y+=-60;
                 }
                 else{
-               console.log(this.y);
+
                this.y +=- 90;
                }
             }
@@ -107,7 +108,7 @@ Player.prototype.handleInput = function(key){
         default:
             this.key = null;
     }
-    }
+    };
 
 //check the players x and y position with all the enemies
 //if they are touching the restart function is called
@@ -121,23 +122,23 @@ Player.prototype.collision = function(){
     }
 
 }
-}
+};
 //is called if collision is true and resets players position
 Player.prototype.restart = function(){
 
     this.y = 400;
     this.x = 202;
-}
+};
 //draws the player
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
-}
+};
 
 
 //instantiate the enemiees and place them in the allEnemies array.
 var allEnemies = [];
-allEnemies.push(new Enemy(), new Enemy, new Enemy);// Place all enemy objects in an array called allEnemies
+allEnemies.push(new Enemy(), new Enemy(), new Enemy());// Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var player = new Player();
 
